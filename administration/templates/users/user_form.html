@@ -9,7 +9,17 @@
         <div class="card-body">
             <form method="post">
                 {% csrf_token %}
-                {% bootstrap_form user_form %}
+                <div class="form-group">
+                    {% bootstrap_field user_form.username %}
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        {% bootstrap_field user_form.password1 %}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {% bootstrap_field user_form.password2 %}
+                    </div>
+                </div>
                 <input type="submit" class="btn btn-primary" value="Salvar">
             </form>
         </div>

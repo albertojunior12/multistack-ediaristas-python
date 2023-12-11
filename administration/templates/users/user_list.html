@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    Listagem de Usuários
+{% endblock title %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Lista de Usuários</div>
+        </div>
+        <div class="card-body-p-0">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td><a href="#">Editar</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a href="{% url 'user_create' %}" class="btn btn-primary">Cadastrar</a>
+{% endblock content %}
