@@ -1,7 +1,7 @@
 from django.urls import path
 
 from administration.views.service_views import service_create, service_list, service_edit
-from administration.views.user_views import user_create, user_list
+from administration.views.user_views import user_create, user_list, user_edit
 
 urlpatterns = [
     path('services/create/', service_create, name='service_create'),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('services/edit/<int:id>/', service_edit, name='service_edit'),
     path('users/create/', user_create, name='user_create'),
     path('users/list/', user_list, name='user_list'),
+    path('users/edit/<int:id>/', user_edit, name='user_edit'),
 ]
