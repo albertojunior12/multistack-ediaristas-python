@@ -1,5 +1,13 @@
 {% extends 'adminlte/lib/_main_header.html' %}
 
+{% block logout_url %}
+    {% url 'logout' %}
+{% endblock logout_url %}
+
+{% block change_password_url %}
+	{% url 'change_password' %}
+{% endblock change_password_url %}
+
 {% block nav_bar %}
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -9,4 +17,16 @@
             <a href="{% url 'service_list' %}" class="nav-link">Home</a>
         </li>
     </ul>
+
+    {% block nav_custom_menu %}
+        <ul class="navbar-nav ml-auto">
+            <ul class="nav navbar-nav">
+                {% block header_dropdowns %}
+                    {% block user_info %}
+                        {{ block.super }}
+                    {% endblock user_info %}
+                {% endblock header_dropdowns %}
+            </ul>
+        </ul>
+    {% endblock nav_custom_menu %}
 {% endblock nav_bar %}
